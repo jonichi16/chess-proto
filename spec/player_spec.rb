@@ -32,13 +32,18 @@ describe Player do
       subject(:player_create) { described_class.new('White Player', 'white') }
 
       it 'create 8 pawns to pieces' do
-        pieces = player_create.pieces
-        expect(pieces).to include(Pawn).exactly(8).times
+        pawns = player_create.pieces
+        expect(pawns).to include(Pawn).exactly(8).times
       end
 
       it 'create pawn at [0, 1] position' do
         position = player_create.pieces[0].position
         expect(position).to eq([0, 1])
+      end
+
+      it 'create 2 rooks to pieces' do
+        rooks = player_create.pieces
+        expect(rooks).to include(Rook).exactly(2).times
       end
     end
   end  
