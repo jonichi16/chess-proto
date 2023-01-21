@@ -65,10 +65,3 @@ class Player
     container.push(King.new(type, [4, y]))
   end
 end
-
-player1 = Player.new('Jon', 'white')
-player2 = Player.new('Bon', 'black')
-puts 'player 1'
-p player1.pieces
-puts 'player 2'
-p player2.pieces
