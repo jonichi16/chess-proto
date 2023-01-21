@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Message
   def self.display_intro
     intro_message
@@ -17,17 +19,15 @@ module Message
     print "\e[2J\e[f"
   end
 
-  private
-
   def self.intro_message
     puts <<~INTRO
 
-    CHESS
+      CHESS
 
-    \e[32m[1]\e[0m Start new game
-    \e[32m[2]\e[0m Load saved game
-    \e[31m[3]\e[0m Quit
-    
+      \e[32m[1]\e[0m Start new game
+      \e[32m[2]\e[0m Load saved game
+      \e[31m[3]\e[0m Quit
+
     INTRO
   end
 

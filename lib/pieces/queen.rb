@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# * Class for creating queens
 class Queen
   attr_reader :type, :position, :symbol, :moves
 

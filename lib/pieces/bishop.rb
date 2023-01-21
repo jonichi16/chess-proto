@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# * Class for creating bishops
 class Bishop
   attr_reader :type, :position, :symbol, :moves
 

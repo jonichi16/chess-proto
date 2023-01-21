@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# * Class for creating rooks
 class Rook
   attr_reader :type, :position, :symbol, :moves
 

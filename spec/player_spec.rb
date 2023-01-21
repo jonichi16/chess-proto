@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require './lib/player'
 
 describe Player do
@@ -7,7 +9,7 @@ describe Player do
 
       matcher :be_white do
         match { |item| item.type == create_white.type }
-      end 
+      end
 
       it 'create white pieces' do
         pieces = create_white.pieces
@@ -20,7 +22,7 @@ describe Player do
 
       matcher :be_black do
         match { |item| item.type == create_black.type }
-      end 
+      end
 
       it 'create black pieces' do
         pieces = create_black.pieces
@@ -66,5 +68,5 @@ describe Player do
         expect(king).to include(King).exactly(1).times
       end
     end
-  end  
+  end
 end

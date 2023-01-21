@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require './lib/pieces/pawn'
 require './lib/pieces/rook'
 require './lib/pieces/knight'
@@ -5,6 +7,7 @@ require './lib/pieces/bishop'
 require './lib/pieces/queen'
 require './lib/pieces/king'
 
+# * Class for creating players
 class Player
   attr_reader :name, :type, :pieces
 

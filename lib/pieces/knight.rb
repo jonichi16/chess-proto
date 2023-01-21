@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# * Class for creating knights
 class Knight
   attr_reader :type, :position, :symbol, :moves
 
