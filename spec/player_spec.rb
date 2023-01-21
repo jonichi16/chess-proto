@@ -50,6 +50,11 @@ describe Player do
         knights = player_create.pieces
         expect(knights).to include(Knight).exactly(2).times
       end
+
+      it 'create 2 bishop to pieces' do
+        bishop = player_create.pieces
+        expect(bishop).to include(Bishop).exactly(2).times
+      end
     end
   end  
 end
