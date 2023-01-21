@@ -35,25 +35,30 @@ class Player
   end
 
   def create_rooks(container)
-    container.push(Rook.new(type, [0, 0]))
-    container.push(Rook.new(type, [7, 0]))
+    y = type == 'white' ? 0 : 7
+    container.push(Rook.new(type, [0, y]))
+    container.push(Rook.new(type, [7, y]))
   end
 
   def create_knights(container)
-    container.push(Knight.new(type, [1, 0]))
-    container.push(Knight.new(type, [6, 0]))
+    y = type == 'white' ? 0 : 7
+    container.push(Knight.new(type, [1, y]))
+    container.push(Knight.new(type, [6, y]))
   end
 
   def create_bishops(container)
-    container.push(Bishop.new(type, [2, 0]))
-    container.push(Bishop.new(type, [5, 0]))
+    y = type == 'white' ? 0 : 7
+    container.push(Bishop.new(type, [2, y]))
+    container.push(Bishop.new(type, [5, y]))
   end
 
   def create_queen(container)
-    container.push(Queen.new(type, [3, 0]))
+    y = type == 'white' ? 0 : 7
+    container.push(Queen.new(type, [3, y]))
   end
 
   def create_king(container)
-    container.push(King.new(type, [4, 0]))
+    y = type == 'white' ? 0 : 7
+    container.push(King.new(type, [4, y]))
   end
 end
