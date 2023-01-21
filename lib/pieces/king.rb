@@ -11,6 +11,6 @@ class King
   private
 
   def assign_symbol
-    type == 'white' ? "\u2654" : "u\265A"
+    type == 'white' ? "\u2654" : "\u265A"
   end
 end

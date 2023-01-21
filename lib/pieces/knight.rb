@@ -11,6 +11,6 @@ class Knight
   private
 
   def assign_symbol
-    type == 'white' ? "\u2658" : "u\265E"
+    type == 'white' ? "\u2658" : "\u265E"
   end
 end

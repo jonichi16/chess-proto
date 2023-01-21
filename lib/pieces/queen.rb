@@ -11,6 +11,6 @@ class Queen
   private
 
   def assign_symbol
-    type == 'white' ? "\u2655" : "u\265B"
+    type == 'white' ? "\u2655" : "\u265B"
   end
 end

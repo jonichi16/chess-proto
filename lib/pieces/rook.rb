@@ -11,6 +11,6 @@ class Rook
   private
 
   def assign_symbol
-    type == 'white' ? "\u2656" : "u\265C"
+    type == 'white' ? "\u2656" : "\u265C"
   end
 end

@@ -11,6 +11,6 @@ class Pawn
   private
 
   def assign_symbol
-    type == 'white' ? "\u2659" : "u\265F"
+    type == 'white' ? "\u2659" : "\u265F"
   end
 end

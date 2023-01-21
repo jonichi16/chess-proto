@@ -11,6 +11,6 @@ class Bishop
   private
 
   def assign_symbol
-    type == 'white' ? "\u2657" : "u\265D"
+    type == 'white' ? "\u2657" : "\u265D"
   end
 end
