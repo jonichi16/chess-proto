@@ -1,4 +1,5 @@
 require './lib/pieces/pawn'
+require './lib/pieces/rook'
 
 class Player
   attr_reader :name, :type, :pieces
@@ -12,6 +13,7 @@ class Player
   def create_pieces
     container = []
     create_pawns(container)
+    create_rooks(container)
     container
   end
 
@@ -22,5 +24,10 @@ class Player
     8.times do |x|
       container.push(Pawn.new(type, [x, y]))
     end
+  end
+
+  def create_rooks(container)
+    container.push(Rook.new(type, [0, 0]))
+    container.push(Rook.new(type, [7, 0]))
   end
 end
