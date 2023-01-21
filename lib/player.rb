@@ -18,8 +18,9 @@ class Player
   private
 
   def create_pawns(container)
+    y = type == 'white' ? 1 : 6
     8.times do |x|
-      container.push(Pawn.new(type, [x, 1]))
+      container.push(Pawn.new(type, [x, y]))
     end
   end
 end
