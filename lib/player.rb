@@ -1,5 +1,6 @@
 require './lib/pieces/pawn'
 require './lib/pieces/rook'
+require './lib/pieces/knight'
 
 class Player
   attr_reader :name, :type, :pieces
@@ -14,6 +15,7 @@ class Player
     container = []
     create_pawns(container)
     create_rooks(container)
+    create_knights(container)
     container
   end
 
@@ -29,5 +31,10 @@ class Player
   def create_rooks(container)
     container.push(Rook.new(type, [0, 0]))
     container.push(Rook.new(type, [7, 0]))
+  end
+
+  def create_knights(container)
+    container.push(Knight.new(type, [1, 0]))
+    container.push(Knight.new(type, [6, 0]))
   end
 end
