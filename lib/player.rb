@@ -2,6 +2,7 @@ require './lib/pieces/pawn'
 require './lib/pieces/rook'
 require './lib/pieces/knight'
 require './lib/pieces/bishop'
+require './lib/pieces/queen'
 
 class Player
   attr_reader :name, :type, :pieces
@@ -17,7 +18,8 @@ class Player
     create_pawns(container)
     create_rooks(container)
     create_knights(container)
-    create_bishop(container)
+    create_bishops(container)
+    create_queen(container)
     container
   end
 
@@ -40,8 +42,12 @@ class Player
     container.push(Knight.new(type, [6, 0]))
   end
 
-  def create_bishop(container)
+  def create_bishops(container)
     container.push(Bishop.new(type, [2, 0]))
     container.push(Bishop.new(type, [5, 0]))
+  end
+
+  def create_queen(container)
+    container.push(Queen.new(type, [3, 0]))
   end
 end
