@@ -45,6 +45,11 @@ describe Player do
         rooks = player_create.pieces
         expect(rooks).to include(Rook).exactly(2).times
       end
+
+      it 'create 2 knights to pieces' do
+        knights = player_create.pieces
+        expect(knights).to include(Knight).exactly(2).times
+      end
     end
   end  
 end
