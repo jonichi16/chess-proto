@@ -57,7 +57,7 @@ describe Chess do
       it 'returns an array of coordinates for current position and destination' do
         input = 'd2d4'
         result = game_convert.input_converter(input)
-        expected = [[3, 1], [3, 3]]
+        expected = [[1, 3], [3, 3]]
         expect(result).to eq(expected)
       end
     end
@@ -66,7 +66,7 @@ describe Chess do
       it 'returns an array of coordinates for current position and destination' do
         input = 'b1c3'
         result = game_convert.input_converter(input)
-        expected = [[1, 0], [2, 2]]
+        expected = [[0, 1], [2, 2]]
         expect(result).to eq(expected)
       end
     end
@@ -75,7 +75,7 @@ describe Chess do
       it 'returns an array of coordinates for current position and destination' do
         input = 'e7e5'
         result = game_convert.input_converter(input)
-        expected = [[4, 6], [4, 4]]
+        expected = [[6, 4], [4, 4]]
         expect(result).to eq(expected)
       end
     end
