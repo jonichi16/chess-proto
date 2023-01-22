@@ -33,4 +33,12 @@ class Chess
       puts "\n\e[31mInvalid Input!\e[0m Please type the correct coordinate of your move based on the board"
     end
   end
+
+  def input_converter(input)
+    input_array = input.chars
+    [
+      [input_array[0].ord - 97, input_array[1].to_i - 1],
+      [input_array[2].ord - 97, input_array[3].to_i - 1]
+    ]
+  end
 end

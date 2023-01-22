@@ -49,4 +49,35 @@ describe Chess do
       end
     end
   end
+
+  describe '#input_converter' do
+    subject(:game_convert) { described_class.new }
+
+    context 'when player input d2d4' do
+      it 'returns an array of coordinates for current position and destination' do
+        input = 'd2d4'
+        result = game_convert.input_converter(input)
+        expected = [[3, 1], [3, 3]]
+        expect(result).to eq(expected)
+      end
+    end
+
+    context 'when player input b1c3' do
+      it 'returns an array of coordinates for current position and destination' do
+        input = 'b1c3'
+        result = game_convert.input_converter(input)
+        expected = [[1, 0], [2, 2]]
+        expect(result).to eq(expected)
+      end
+    end
+
+    context 'when player input e7e5' do
+      it 'returns an array of coordinates for current position and destination' do
+        input = 'e7e5'
+        result = game_convert.input_converter(input)
+        expected = [[4, 6], [4, 4]]
+        expect(result).to eq(expected)
+      end
+    end
+  end
 end
