@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# * Module for messages to use
 module Message
   def self.display_intro
     intro_message
