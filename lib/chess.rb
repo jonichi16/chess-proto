@@ -78,9 +78,17 @@ class Chess
   private
 
   def update_piece(position, destination)
-    pieces = current_player.type == 'white' ? white_player.pieces : black_player.pieces
-    pieces.each do |piece|
+    update_opponent(destination)
+    current_pieces = current_player.type == 'white' ? white_player.pieces : black_player.pieces
+    current_pieces.each do |piece|
       piece.move_position(destination) if piece.position == position
+    end
+  end
+
+  def update_opponent(destination)
+    opponent_pieces = current_player.type == 'white' ? black_player.pieces : white_player.pieces
+    opponent_pieces.reject! do |piece|
+      piece.position == destination
     end
   end
 end
