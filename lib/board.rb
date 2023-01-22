@@ -31,16 +31,16 @@ class Board
 
   def board_white_transform(white_pieces)
     white_pieces.each do |piece|
-      x = piece.position[1]
-      y = piece.position[0]
+      x = piece.position[0]
+      y = piece.position[1]
       board[x][y] = piece.symbol
     end
   end
 
   def board_black_transform(black_pieces)
     black_pieces.each do |piece|
-      x = piece.position[1]
-      y = piece.position[0]
+      x = piece.position[0]
+      y = piece.position[1]
       board[x][y] = piece.symbol
     end
   end

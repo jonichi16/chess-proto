@@ -31,37 +31,37 @@ class Player
   private
 
   def create_pawns(container)
-    y = type == 'white' ? 1 : 6
-    8.times do |x|
+    x = type == 'white' ? 1 : 6
+    8.times do |y|
       container.push(Pawn.new(type, [x, y]))
     end
   end
 
   def create_rooks(container)
-    y = type == 'white' ? 0 : 7
-    container.push(Rook.new(type, [0, y]))
-    container.push(Rook.new(type, [7, y]))
+    x = type == 'white' ? 0 : 7
+    container.push(Rook.new(type, [x, 0]))
+    container.push(Rook.new(type, [x, 7]))
   end
 
   def create_knights(container)
-    y = type == 'white' ? 0 : 7
-    container.push(Knight.new(type, [1, y]))
-    container.push(Knight.new(type, [6, y]))
+    x = type == 'white' ? 0 : 7
+    container.push(Knight.new(type, [x, 1]))
+    container.push(Knight.new(type, [x, 6]))
   end
 
   def create_bishops(container)
-    y = type == 'white' ? 0 : 7
-    container.push(Bishop.new(type, [2, y]))
-    container.push(Bishop.new(type, [5, y]))
+    x = type == 'white' ? 0 : 7
+    container.push(Bishop.new(type, [x, 2]))
+    container.push(Bishop.new(type, [x, 5]))
   end
 
   def create_queen(container)
-    y = type == 'white' ? 0 : 7
-    container.push(Queen.new(type, [3, y]))
+    x = type == 'white' ? 0 : 7
+    container.push(Queen.new(type, [x, 3]))
   end
 
   def create_king(container)
-    y = type == 'white' ? 0 : 7
-    container.push(King.new(type, [4, y]))
+    x = type == 'white' ? 0 : 7
+    container.push(King.new(type, [x, 4]))
   end
 end
