@@ -33,7 +33,7 @@ class Board
     white_pieces.each do |piece|
       x = piece.position[0]
       y = piece.position[1]
-      board[x][y] = piece.symbol
+      board[x][y] = piece
     end
   end
 
@@ -41,7 +41,7 @@ class Board
     black_pieces.each do |piece|
       x = piece.position[0]
       y = piece.position[1]
-      board[x][y] = piece.symbol
+      board[x][y] = piece
     end
   end
 

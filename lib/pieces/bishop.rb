@@ -11,6 +11,10 @@ class Bishop
     @moves = []
   end
 
+  def to_s
+    symbol
+  end
+
   private
 
   def assign_symbol
