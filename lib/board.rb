@@ -51,6 +51,7 @@ class Board
     end
   end
 
+  # rubocop:disable Metrics
   def board_transform
     board_to_display = board.each_with_index.map do |row, r|
       transformed_row = row_transform(row)
@@ -65,4 +66,5 @@ class Board
     end
     board_to_display.reverse.join("\n")
   end
+  # rubocop:enable Metrics
 end
