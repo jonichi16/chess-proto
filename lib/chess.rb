@@ -15,7 +15,7 @@ class Chess
   end
 
   def play_game
-    p display_current_board
+    puts display_current_board
   end
 
   def display_current_board
