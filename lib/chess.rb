@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require './lib/player'
+require './lib/board'
 
 # * Class for the game flow
 class Chess
@@ -11,6 +12,10 @@ class Chess
     @white_player = Player.new('White Player', 'white')
     @black_player = Player.new('Black Player', 'black')
     @current_player = white_player
+  end
+
+  def play_game
+    display_current_board
   end
 
   def display_current_board

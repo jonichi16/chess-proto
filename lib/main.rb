@@ -24,8 +24,8 @@ def option(choice)
 end
 
 def start_new_game
-  Chess.new
-  puts 'Chess game created'
+  game = Chess.new
+  game.play_game
 end
 
 play
