@@ -30,10 +30,10 @@ class Chess
   def player_input
     loop do
       player_input = gets.chomp.downcase
-      verified = player_input if player_input.match?(/^[a-h][1-8][a-h][1-8]$/)
+      verified = verify_input(player_input) if player_input.match?(/^[a-h][1-8][a-h][1-8]$/)
       return verified if verified
 
-      puts "\n\e[31mInvalid Input!\e[0m Please type the correct coordinate of your move based on the board"
+      puts "\n\e[31mIllegal move!\e[0m Please type the correct coordinate of your move based on the board"
     end
   end
 
@@ -45,9 +45,16 @@ class Chess
     ]
   end
 
+  def verify_input(input)
+    legal_move = input_converter(input)
+    destination = legal_move[1]
+    piece = board.board[destination[0]][destination[1]]
+    return legal_move if piece.nil? || piece.type != current_player.type
+  end
+
   def update_position
     puts "\n#{current_player.name}'s turn! Please type the coordinate of your move. (e.g. d2d4, b1c3)"
-    move = input_converter(player_input)
+    move = player_input
     update_piece(move[0], move[1])
     Message.clear_screen
     puts display_current_board
