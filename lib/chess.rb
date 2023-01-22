@@ -2,9 +2,11 @@
 
 require './lib/player'
 require './lib/board'
+require './lib/utility/message'
 
 # * Class for the game flow
 class Chess
+  include Message
   attr_reader :board, :white_player, :black_player, :current_player
 
   def initialize(board = Board.new)
@@ -16,6 +18,7 @@ class Chess
 
   def play_game
     puts display_current_board
+    update_position
   end
 
   def display_current_board
@@ -37,8 +40,25 @@ class Chess
   def input_converter(input)
     input_array = input.chars
     [
-      [input_array[0].ord - 97, input_array[1].to_i - 1],
-      [input_array[2].ord - 97, input_array[3].to_i - 1]
+      [input_array[1].to_i - 1, input_array[0].ord - 97],
+      [input_array[3].to_i - 1, input_array[2].ord - 97]
     ]
+  end
+
+  def update_position
+    puts "\n#{current_player.name}'s turn! Please type the coordinate of your move. (e.g. d2d4, b1c3)"
+    move = input_converter(player_input)
+    update_piece(move[0], move[1])
+    Message.clear_screen
+    puts display_current_board
+  end
+
+  private
+
+  def update_piece(position, destination)
+    pieces = current_player.type == 'white' ? white_player.pieces : black_player.pieces
+    pieces.each do |piece|
+      piece.move_position(destination) if piece.position == position
+    end
   end
 end

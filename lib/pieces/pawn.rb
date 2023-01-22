@@ -15,6 +15,10 @@ class Pawn
     symbol
   end
 
+  def move_position(destination)
+    @position = destination
+  end
+
   private
 
   def assign_symbol

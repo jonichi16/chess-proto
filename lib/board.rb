@@ -5,10 +5,11 @@ class Board
   attr_reader :board
 
   def initialize
-    @board = create_board
+    @board = nil
   end
 
   def display_board(white_pieces, black_pieces)
+    @board = create_board
     board_white_transform(white_pieces)
     board_black_transform(black_pieces)
     board_transform
