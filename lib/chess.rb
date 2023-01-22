@@ -23,4 +23,14 @@ class Chess
     black_pieces = black_player.pieces
     board.display_board(white_pieces, black_pieces)
   end
+
+  def player_input
+    loop do
+      player_input = gets.chomp.downcase
+      verified = player_input if player_input.match?(/^[a-h][1-8][a-h][1-8]$/)
+      return verified if verified
+
+      puts "\n\e[31mInvalid Input!\e[0m Please type the correct coordinate of your move based on the board"
+    end
+  end
 end
