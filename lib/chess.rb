@@ -18,7 +18,16 @@ class Chess
 
   def play_game
     puts display_current_board
+    10.times { turn_order }
+  end
+
+  def turn_order
     update_position
+    player_switch
+  end
+
+  def player_switch
+    @current_player = current_player == white_player ? black_player : white_player
   end
 
   def display_current_board
@@ -45,11 +54,17 @@ class Chess
     ]
   end
 
+  # rubocop:disable Metrics/AbcSize
   def verify_input(input)
     legal_move = input_converter(input)
-    destination = legal_move[1]
-    piece = board.board[destination[0]][destination[1]]
-    return legal_move if piece.nil? || piece.type != current_player.type
+    position = board.board[legal_move[0][0]][legal_move[0][1]]
+    destination = board.board[legal_move[1][0]][legal_move[1][1]]
+    return legal_move if position_check(position, destination)
+  end
+  # rubocop:enable Metrics/AbcSize
+
+  def position_check(position, destination)
+    position && position.type == current_player.type && (destination.nil? || destination.type != current_player.type)
   end
 
   def update_position
