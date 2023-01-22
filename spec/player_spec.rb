@@ -38,9 +38,9 @@ describe Player do
         expect(pawns).to include(Pawn).exactly(8).times
       end
 
-      it 'create pawn at [0, 1] position' do
+      it 'create pawn at [1, 0] position' do
         position = player_create.pieces[0].position
-        expect(position).to eq([0, 1])
+        expect(position).to eq([1, 0])
       end
 
       it 'create 2 rooks to pieces' do
