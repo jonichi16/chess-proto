@@ -25,6 +25,3 @@ class Knight < Piece
     type == 'white' ? "\u2658" : "\u265E"
   end
 end
-
-knight = Knight.new('white', [4, 4])
-p knight
