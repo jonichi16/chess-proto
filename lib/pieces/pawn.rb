@@ -14,6 +14,7 @@ class Pawn < Piece
     super
   end
 
+  # rubocop:disable Metrics
   def add_moves(position)
     valid_moves = []
     PAWN_MOVES.each_with_index do |move, i|
@@ -28,6 +29,7 @@ class Pawn < Piece
     end
     valid_moves
   end
+  # rubocop:enable Metrics
 
   def move_position(destination)
     @position = destination
@@ -40,4 +42,3 @@ class Pawn < Piece
     type == 'white' ? "\u2659" : "\u265F"
   end
 end
-
