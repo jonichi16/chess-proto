@@ -59,9 +59,13 @@ class Chess
     legal_move = input_converter(input)
     position = board.board[legal_move[0][0]][legal_move[0][1]]
     destination = board.board[legal_move[1][0]][legal_move[1][1]]
-    return legal_move if position_check(position, destination)
+    return legal_move if position_check(position, destination) && piece_legal_move(position, legal_move[1])
   end
   # rubocop:enable Metrics/AbcSize
+
+  def piece_legal_move(piece, destination)
+    piece.moves.include?(destination)
+  end
 
   def position_check(position, destination)
     position && position.type == current_player.type && (destination.nil? || destination.type != current_player.type)
