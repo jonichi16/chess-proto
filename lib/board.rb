@@ -63,9 +63,9 @@ class Board
           r.odd? && c.odd? ? "\e[42m#{col} \e[0m" : "\e[7m#{col} \e[27m"
         end
       end
-      row_to_display.join
+      "#{r + 1} #{row_to_display.join}"
     end
-    board_to_display.reverse.join("\n")
+    "#{board_to_display.reverse.join("\n")}\n  A B C D E F G H\n"
   end
   # rubocop:enable Metrics
 end
