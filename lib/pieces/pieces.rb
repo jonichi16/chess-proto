@@ -15,7 +15,10 @@ class Piece
     symbol
   end
 
-  def move_position(destination)
-    @position = destination
+  def add_moves(position)
+  end
+
+  def move_position(type, destination)
+    initialize(type, destination)
   end
 end

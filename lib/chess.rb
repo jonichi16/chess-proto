@@ -85,7 +85,7 @@ class Chess
     update_opponent(destination)
     current_pieces = current_player.type == 'white' ? white_player.pieces : black_player.pieces
     current_pieces.each do |piece|
-      piece.move_position(destination) if piece.position == position
+      piece.move_position(piece.type, destination) if piece.position == position
     end
   end
 

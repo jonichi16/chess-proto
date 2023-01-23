@@ -2,7 +2,8 @@
 
 require './lib/pieces/pieces'
 
-PAWN_MOVES = [[1, 0], [2, 0], [1, 1]].freeze
+PAWN_MOVES_WHITE = [[1, 0], [2, 0], [1, 1], [1, -1]].freeze
+PAWN_MOVES_BLACK = [[-1, 0], [-2, 0], [-1, -1], [-1, 1]].freeze
 
 # * Class for creating pawns
 class Pawn < Piece
@@ -17,23 +18,23 @@ class Pawn < Piece
   # rubocop:disable Metrics
   def add_moves(position)
     valid_moves = []
-    PAWN_MOVES.each_with_index do |move, i|
+    moves = type == 'white' ? PAWN_MOVES_WHITE : PAWN_MOVES_BLACK
+    moves.each_with_index do |move, i|
       x = move[0] + position[0]
       y = move[1] + position[1]
-      next if !x.between?(1, 8) ||
-              !y.between?(1, 8) ||
+      next if !x.between?(0, 7) ||
+              !y.between?(0, 7) ||
               (i == 1 && !double_move) ||
-              (i == 2 && !take_move)
+              ((i == 2 || i == 3 ) && !take_move)
 
       valid_moves.push([x, y])
     end
     valid_moves
   end
   # rubocop:enable Metrics
-
-  def move_position(destination)
-    @position = destination
-    @double_move = false
+  
+  def move_position(type, destination)
+    initialize(type, destination)
   end
 
   private
@@ -42,3 +43,8 @@ class Pawn < Piece
     type == 'white' ? "\u2659" : "\u265F"
   end
 end
+
+pawn = Pawn.new('white', [1, 3])
+p pawn
+pawn.move_position('white', [2, 3])
+p pawn
