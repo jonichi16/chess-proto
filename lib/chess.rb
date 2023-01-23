@@ -3,10 +3,12 @@
 require './lib/player'
 require './lib/board'
 require './lib/utility/message'
+require './lib/utility/moves'
 
 # * Class for the game flow
 class Chess
   include Message
+  include Moves
   attr_reader :board, :white_player, :black_player, :current_player
 
   def initialize(board = Board.new)
@@ -64,7 +66,13 @@ class Chess
   # rubocop:enable Metrics/AbcSize
 
   def piece_legal_move(piece, destination)
-    piece.moves.include?(destination)
+    return piece.moves.include?(destination) if piece.instance_of?(Knight)
+
+    position_allowed = []
+    piece.moves.each do |move|
+      position_allowed.push(move) unless board.board[move[1]][move[0]]
+    end
+    position_allowed.include?(destination)
   end
 
   def position_check(position, destination)
