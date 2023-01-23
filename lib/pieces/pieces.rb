@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # * Super class for pieces
 class Piece
   attr_reader :type, :position, :symbol, :moves
@@ -6,7 +8,7 @@ class Piece
     @type = type
     @position = position
     @symbol = assign_symbol
-    @moves = []
+    @moves = add_moves(position)
   end
 
   def to_s
